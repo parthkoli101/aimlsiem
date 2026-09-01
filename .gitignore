@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+venv/
+.venv/
+env/
+
+# Build & Output
+dist/
+build/
+*.egg-info/
+
+# Environment & Local Configuration
+.env
+.env.local
+*.log
+
+# Python Cache & Testing
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
