@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { PageShell } from './components/layout/PageShell.jsx';
 import { Landing } from './pages/Landing.jsx';
 import { LogInput } from './pages/LogInput.jsx';
+import { Results } from './pages/Results.jsx';
+import { Remediation } from './pages/Remediation.jsx';
 import { Dashboard } from './pages/Dashboard.jsx';
 import { Investigation } from './pages/Investigation.jsx';
 import { ExposureIntelligence } from './pages/ExposureIntelligence.jsx';
@@ -11,19 +13,34 @@ import { X, FileText, CheckCircle } from 'lucide-react';
 export default function App() {
   const [activeTab, setActiveTab] = useState('landing');
   const [selectedIncident, setSelectedIncident] = useState(null);
+  const [remediationIncident, setRemediationIncident] = useState(null);
   const [reportModal, setReportModal] = useState(false);
+  // Real incidents from the ML+Groq pipeline
+  const [analysisResult, setAnalysisResult] = useState({ incidents: null, metadata: null });
 
   const handleStartInvestigation = () => {
     setActiveTab('log-input');
   };
 
-  const handleAnalysisComplete = () => {
-    setActiveTab('dashboard');
+  // Called by LogInput after pipeline completes
+  const handleAnalysisComplete = (incidents, metadata) => {
+    if (incidents && incidents.length > 0) {
+      setAnalysisResult({ incidents, metadata });
+      setActiveTab('results'); // Go directly to Results page
+    } else {
+      setAnalysisResult({ incidents: [], metadata });
+      setActiveTab('results');
+    }
   };
 
   const handleSelectIncident = (incident) => {
     setSelectedIncident(incident);
     setActiveTab('investigation');
+  };
+
+  const handleGetRemediation = (incident) => {
+    setRemediationIncident(incident);
+    setActiveTab('remediation');
   };
 
   const handleGenerateReport = () => {
@@ -40,10 +57,31 @@ export default function App() {
         <LogInput onAnalysisComplete={handleAnalysisComplete} />
       )}
 
+      {/* NEW: Post-analysis Results page */}
+      {activeTab === 'results' && (
+        <Results
+          incidents={analysisResult.incidents || []}
+          metadata={analysisResult.metadata || {}}
+          onGetRemediation={handleGetRemediation}
+          onBack={() => setActiveTab('log-input')}
+        />
+      )}
+
+      {/* NEW: Remediation page */}
+      {activeTab === 'remediation' && (
+        <Remediation
+          incident={remediationIncident}
+          onBack={() => setActiveTab('results')}
+        />
+      )}
+
+      {/* Dashboard (for mock/browsing incidents) */}
       {activeTab === 'dashboard' && (
         <Dashboard
           onSelectIncident={handleSelectIncident}
           onGenerateReport={handleGenerateReport}
+          realIncidents={analysisResult.incidents}
+          analysisMetadata={analysisResult.metadata}
         />
       )}
 
@@ -52,6 +90,7 @@ export default function App() {
           incident={selectedIncident}
           onBack={() => setActiveTab('dashboard')}
           onGenerateReport={handleGenerateReport}
+          allIncidents={analysisResult.incidents}
         />
       )}
 

@@ -1,0 +1,117 @@
+[
+  {
+    "id": "EVT-0001",
+    "timestamp": "2026-09-01T08:35:10Z",
+    "source_ip": "10.0.4.12",
+    "dest_ip": "185.220.101.4",
+    "source_port": 52410,
+    "dest_port": 443,
+    "protocol": "TCP",
+    "packet_length": 1492048,
+    "event_id": 5156,
+    "description": "Outbound TCP connection established. Transferred 1.4 GB data in 3 minutes.",
+    "severity": "CRITICAL",
+    "user": "j.doe@corp.internal",
+    "schema": "network",
+    "Malware Indicators": "Beacon pattern detected"
+  },
+  {
+    "id": "EVT-0002",
+    "timestamp": "2026-09-01T08:36:02Z",
+    "EventID": 4104,
+    "SubjectUserName": "j.doe",
+    "NewProcessName": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "Message": "powershell.exe -NoP -NonI -W Hidden -Enc SQBFAFgAIAAoAE4AZQB3AC0ATwBiAGoAZQBjAHQ...== FromBase64String IEX Invoke-Expression DownloadString",
+    "Computer": "WORKSTATION-FIN-09"
+  },
+  {
+    "id": "EVT-0003",
+    "timestamp": "2026-09-01T08:38:40Z",
+    "SourceName": "Microsoft-Windows-Sysmon",
+    "EventID": 10,
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "SourceIp": "10.0.4.12",
+    "GrantedAccess": "0x1410",
+    "User": "j.doe@CORP"
+  },
+  {
+    "id": "EVT-0004",
+    "timestamp": "2026-09-01T07:10:00Z",
+    "EventID": 4769,
+    "SubjectUserName": "service_backup",
+    "IpAddress": "10.0.12.44",
+    "description": "Kerberos Service Ticket requested for SPN MSSQLSvc/db-prod with RC4 encryption. Burst of 18 TGS requests in 4 seconds.",
+    "Channel": "Security",
+    "Computer": "DC-PRIMARY-01"
+  },
+  {
+    "id": "EVT-0005",
+    "timestamp": "2026-09-01T07:15:30Z",
+    "EventID": 4769,
+    "SubjectUserName": "service_backup",
+    "IpAddress": "10.0.12.44",
+    "description": "18 TGS requests issued within 4 seconds for privileged service accounts. RC4 encryption downgrade detected.",
+    "Channel": "Security"
+  },
+  {
+    "id": "EVT-0006",
+    "timestamp": "2026-09-01T05:48:00Z",
+    "source_ip": "45.33.32.156",
+    "dest_ip": "203.0.113.88",
+    "source_port": 61200,
+    "dest_port": 22,
+    "protocol": "TCP",
+    "packet_length": 512,
+    "description": "SSH-Patator brute force: 340 failed authentication attempts in 60 seconds from external IP.",
+    "severity": "HIGH"
+  },
+  {
+    "id": "EVT-0007",
+    "timestamp": "2026-09-01T05:50:00Z",
+    "source_ip": "91.108.4.22",
+    "dest_ip": "203.0.113.88",
+    "source_port": 53201,
+    "dest_port": 3389,
+    "protocol": "TCP",
+    "packet_length": 256,
+    "description": "RDP connection attempt from suspicious external IP to VPN gateway.",
+    "severity": "HIGH",
+    "Malware Indicators": "Known Tor exit node"
+  },
+  {
+    "id": "EVT-0008",
+    "timestamp": "2026-09-01T03:12:44Z",
+    "source_ip": "10.0.3.55",
+    "dest_ip": "10.0.2.11",
+    "source_port": 445,
+    "dest_port": 445,
+    "protocol": "TCP",
+    "packet_length": 890,
+    "description": "PsExec remote execution on SRV-FILE-03 via ADMIN$ share. Service created on destination.",
+    "severity": "HIGH",
+    "user": "admin_temp"
+  },
+  {
+    "id": "EVT-0009",
+    "timestamp": "2026-09-01T03:14:00Z",
+    "EventID": 7045,
+    "SubjectUserName": "admin_temp",
+    "Computer": "SRV-FILE-03",
+    "Message": "A new service was installed: PSEXESVC — PsExec Service",
+    "Channel": "System"
+  },
+  {
+    "id": "EVT-0010",
+    "timestamp": "2026-09-01T09:00:00Z",
+    "source_ip": "10.0.5.80",
+    "dest_ip": "10.0.5.1",
+    "source_port": 1234,
+    "dest_port": 4444,
+    "protocol": "TCP",
+    "packet_length": 128,
+    "description": "Outbound connection to port 4444. Possible reverse shell or C2 beacon.",
+    "severity": "CRITICAL",
+    "Malware Indicators": "C2 port 4444 detected"
+  }
+]

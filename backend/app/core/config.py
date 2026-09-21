@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000
     ALLOWED_ORIGINS: str = "http://localhost:5173,http://127.0.0.1:5173"
+    GROQ_API_KEY: str = ""
 
     @property
     def allowed_origins_list(self) -> List[str]:

@@ -32,7 +32,7 @@ export function Landing({ onStart }) {
           marginBottom: '12px',
           border: '1px solid var(--status-high-border)'
         }}>
-          <Shield size={13} /> SIH26-S01 Security Operations Workstation
+          <Shield size={13} /> DarkShieldAI Security Operations Workstation
         </div>
 
         <h1 style={{

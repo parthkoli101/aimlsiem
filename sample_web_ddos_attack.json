@@ -1,0 +1,40 @@
+[
+  {
+    "id": "EVT-WEB-001",
+    "timestamp": "2026-09-01T06:10:00Z",
+    "source_ip": "45.33.32.156",
+    "dest_ip": "203.0.113.88",
+    "source_port": 54120,
+    "dest_port": 443,
+    "protocol": "TCP",
+    "packet_length": 2048,
+    "description": "SQL Injection in POST /api/v1/auth/login with payload: ' UNION SELECT null, username, password_hash FROM admin_users--",
+    "severity": "CRITICAL",
+    "Malware Indicators": "SQL Injection Signature"
+  },
+  {
+    "id": "EVT-WEB-002",
+    "timestamp": "2026-09-01T06:12:15Z",
+    "source_ip": "45.33.32.156",
+    "dest_ip": "203.0.113.88",
+    "source_port": 61200,
+    "dest_port": 22,
+    "protocol": "TCP",
+    "packet_length": 512,
+    "description": "SSH-Patator automated brute-force attack: 450 failed authentication attempts within 60 seconds.",
+    "severity": "HIGH"
+  },
+  {
+    "id": "EVT-WEB-003",
+    "timestamp": "2026-09-01T06:20:00Z",
+    "source_ip": "185.220.101.4",
+    "dest_ip": "203.0.113.88",
+    "source_port": 80,
+    "dest_port": 80,
+    "protocol": "TCP",
+    "packet_length": 10485760,
+    "description": "HTTP Flood DDoS volumetric attack exceeding 120,000 requests per minute targeting web server edge.",
+    "severity": "CRITICAL",
+    "Malware Indicators": "DDoS HTTP Flood"
+  }
+]

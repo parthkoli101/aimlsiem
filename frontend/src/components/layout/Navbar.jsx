@@ -1,13 +1,14 @@
 import React from 'react';
-import { Shield, Upload, LayoutDashboard, Search, Eye } from 'lucide-react';
+import { Shield, Upload, LayoutDashboard, Search, Eye, AlertTriangle, Wrench } from 'lucide-react';
 
 export function Navbar({ activeTab, onNavigate }) {
   const navItems = [
     { id: 'landing', label: 'Overview', icon: Shield },
     { id: 'log-input', label: 'Log Ingestion', icon: Upload },
+    { id: 'results', label: 'Results', icon: AlertTriangle },
+    { id: 'remediation', label: 'Remediation', icon: Wrench },
     { id: 'dashboard', label: 'SOC Dashboard', icon: LayoutDashboard },
-    { id: 'investigation', label: 'Incident Investigation', icon: Search },
-    { id: 'exposure', label: 'Exposure Intelligence', icon: Eye },
+    { id: 'exposure', label: 'Exposure Intel', icon: Eye },
   ];
 
   return (
@@ -31,10 +32,10 @@ export function Navbar({ activeTab, onNavigate }) {
         <Shield size={16} color="var(--accent-orange)" />
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
           <span style={{ fontWeight: '800', fontSize: '14px', letterSpacing: '0.04em', color: 'var(--text-main)', textTransform: 'uppercase' }}>
-            SENTINEL<span style={{ color: 'var(--accent-orange)' }}>AI</span>
+            DARKSHIELD<span style={{ color: 'var(--accent-orange)' }}>AI</span>
           </span>
           <span style={{ fontSize: '10px', color: 'var(--text-subtle)', fontFamily: 'var(--font-mono)', letterSpacing: '0.05em' }}>
-            SIH26-S01
+            THREAT WORKSTATION
           </span>
         </div>
       </div>

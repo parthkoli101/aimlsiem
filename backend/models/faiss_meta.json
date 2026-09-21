@@ -1,0 +1,177 @@
+[
+  {
+    "caseId": "HIST-2024-001",
+    "attackPattern": "PowerShell LSASS credential dump with Base64 encoded payload via Word macro",
+    "vector": "Spearphishing email with macro-enabled document",
+    "outcome": "Ransomware deployment within 48 hours",
+    "mitreTactic": "TA0006 Credential Access / TA0011 Exfiltration"
+  },
+  {
+    "caseId": "HIST-2024-002",
+    "attackPattern": "Kerberoasting attack against high-privilege service accounts using RC4",
+    "vector": "Compromised low-privilege domain credentials",
+    "outcome": "Domain Admin takeover in 6 hours",
+    "mitreTactic": "TA0006 Credential Access"
+  },
+  {
+    "caseId": "HIST-2024-003",
+    "attackPattern": "DDoS HTTP flood using Hulk tool targeting web servers",
+    "vector": "Botnet-coordinated volumetric attack",
+    "outcome": "4-hour service outage, 99.9% packet drop",
+    "mitreTactic": "TA0040 Impact"
+  },
+  {
+    "caseId": "HIST-2024-004",
+    "attackPattern": "Port scanning reconnaissance using Nmap SYN scan across /24 subnet",
+    "vector": "External threat actor initial reconnaissance",
+    "outcome": "Followed by targeted exploitation in 72h",
+    "mitreTactic": "TA0007 Discovery"
+  },
+  {
+    "caseId": "HIST-2024-005",
+    "attackPattern": "SMB lateral movement via PsExec from compromised workstation to file server",
+    "vector": "Stolen admin credentials from credential dump",
+    "outcome": "Ransomware spread to 12 hosts",
+    "mitreTactic": "TA0008 Lateral Movement"
+  },
+  {
+    "caseId": "HIST-2024-006",
+    "attackPattern": "SQL injection via login form leading to database exfiltration",
+    "vector": "Unpatched web application exposed to internet",
+    "outcome": "600K customer records exfiltrated",
+    "mitreTactic": "TA0009 Collection / TA0011 Exfiltration"
+  },
+  {
+    "caseId": "HIST-2024-007",
+    "attackPattern": "Botnet C2 beacon to Tor exit node using HTTPS with domain fronting",
+    "vector": "Drive-by download from compromised website",
+    "outcome": "Persistent access for 3 weeks undetected",
+    "mitreTactic": "TA0011 Command and Control"
+  },
+  {
+    "caseId": "HIST-2024-008",
+    "attackPattern": "FTP brute-force attack using credential stuffing from rockyou list",
+    "vector": "Exposed FTP server on internet",
+    "outcome": "Successful login and file theft",
+    "mitreTactic": "TA0006 Credential Access"
+  },
+  {
+    "caseId": "HIST-2024-009",
+    "attackPattern": "Heartbleed OpenSSL exploit leaking 64KB memory fragments including private keys",
+    "vector": "Unpatched OpenSSL on public-facing web server",
+    "outcome": "Private key compromise, full MITM capability",
+    "mitreTactic": "TA0006 Credential Access"
+  },
+  {
+    "caseId": "HIST-2024-010",
+    "attackPattern": "Network infiltration via supply chain compromise in third-party vendor VPN",
+    "vector": "Compromised VPN credentials from vendor data breach",
+    "outcome": "Persistent access to internal network for 60 days",
+    "mitreTactic": "TA0001 Initial Access"
+  },
+  {
+    "caseId": "HIST-2024-011",
+    "attackPattern": "XSS stored injection in user profile leading to session hijacking",
+    "vector": "Malicious script submitted through web form",
+    "outcome": "Admin cookie stolen, unauthorized admin access",
+    "mitreTactic": "TA0004 Privilege Escalation"
+  },
+  {
+    "caseId": "HIST-2024-012",
+    "attackPattern": "SSH brute-force attack using automated Patator tool against Linux servers",
+    "vector": "Exposed SSH port with password authentication enabled",
+    "outcome": "Root access achieved after 48h",
+    "mitreTactic": "TA0006 Credential Access"
+  },
+  {
+    "caseId": "HIST-2024-013",
+    "attackPattern": "Slow HTTP DoS attack using Slowloris keeping connections open",
+    "vector": "Under-resourced web server with no connection timeout",
+    "outcome": "Complete web service unavailability for 6 hours",
+    "mitreTactic": "TA0040 Impact"
+  },
+  {
+    "caseId": "HIST-2024-014",
+    "attackPattern": "Data exfiltration via DNS tunneling using dnscat2",
+    "vector": "Compromised internal host with outbound DNS unrestricted",
+    "outcome": "50GB of intellectual property stolen",
+    "mitreTactic": "TA0011 Exfiltration"
+  },
+  {
+    "caseId": "HIST-2024-015",
+    "attackPattern": "Privilege escalation via token impersonation using Incognito on Windows",
+    "vector": "Compromised service account with SeImpersonatePrivilege",
+    "outcome": "SYSTEM-level access gained",
+    "mitreTactic": "TA0004 Privilege Escalation"
+  },
+  {
+    "caseId": "HIST-2024-016",
+    "attackPattern": "Ransomware deployment preceded by Active Directory enumeration and lateral movement",
+    "vector": "Initial access via phishing leading to Cobalt Strike beacon",
+    "outcome": "340 endpoints encrypted, $2.1M ransom demanded",
+    "mitreTactic": "TA0040 Impact"
+  },
+  {
+    "caseId": "HIST-2024-017",
+    "attackPattern": "VPN credential spray attack against multiple accounts from distributed IPs",
+    "vector": "Credential list from previous breach",
+    "outcome": "2 accounts compromised, MFA bypassed",
+    "mitreTactic": "TA0006 Credential Access"
+  },
+  {
+    "caseId": "HIST-2024-018",
+    "attackPattern": "Scheduled task persistence via registry modification after initial compromise",
+    "vector": "Macro execution dropping stager payload",
+    "outcome": "Persistent backdoor surviving reboots for 30 days",
+    "mitreTactic": "TA0003 Persistence"
+  },
+  {
+    "caseId": "HIST-2024-019",
+    "attackPattern": "GoldenEye DoS attack sending random HTTP headers to exhaust server memory",
+    "vector": "Compromised cloud instance launching attack",
+    "outcome": "E-commerce platform down for 9 hours",
+    "mitreTactic": "TA0040 Impact"
+  },
+  {
+    "caseId": "HIST-2024-020",
+    "attackPattern": "Memory injection into legitimate process (process hollowing) for AV evasion",
+    "vector": "Fileless malware delivered via PowerShell",
+    "outcome": "Undetected persistence for 45 days",
+    "mitreTactic": "TA0005 Defense Evasion"
+  },
+  {
+    "caseId": "HIST-2025-001",
+    "attackPattern": "Zero-day exploit in VPN appliance leading to unauthenticated RCE",
+    "vector": "Nation-state actor targeting critical infrastructure",
+    "outcome": "Full network access for 90 days",
+    "mitreTactic": "TA0001 Initial Access"
+  },
+  {
+    "caseId": "HIST-2025-002",
+    "attackPattern": "Insider threat exfiltrating customer PII via encrypted USB transfers",
+    "vector": "Disgruntled employee with privileged database access",
+    "outcome": "120K records exfiltrated before detection",
+    "mitreTactic": "TA0011 Exfiltration"
+  },
+  {
+    "caseId": "HIST-2025-003",
+    "attackPattern": "AI-generated spearphishing emails bypassing email security gateways",
+    "vector": "Targeted attack using LLM-generated convincing lures",
+    "outcome": "CFO credentials compromised, wire fraud attempt",
+    "mitreTactic": "TA0001 Initial Access"
+  },
+  {
+    "caseId": "HIST-2025-004",
+    "attackPattern": "Multi-stage intrusion: spearphish \u2192 Cobalt Strike \u2192 Kerberoasting \u2192 domain dominance",
+    "vector": "APT group targeting financial services sector",
+    "outcome": "Full domain compromise, SWIFT fraud $4.2M",
+    "mitreTactic": "Full kill chain"
+  },
+  {
+    "caseId": "HIST-2025-005",
+    "attackPattern": "Container escape via runc vulnerability in Kubernetes cluster",
+    "vector": "Vulnerable container runtime in production k8s",
+    "outcome": "Host access from container, lateral movement to secrets store",
+    "mitreTactic": "TA0004 Privilege Escalation"
+  }
+]

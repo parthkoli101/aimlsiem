@@ -18,7 +18,7 @@ export function PageShell({ activeTab, onNavigate, children }) {
         justify: 'space-between',
         alignItems: 'center'
       }}>
-        <span>SIH26-S01 Autonomous Threat Investigation & Incident Response Workstation</span>
+        <span>DarkShieldAI Autonomous Threat Investigation & Incident Response Workstation</span>
         <span style={{ fontFamily: 'var(--font-mono)' }}>FastAPI & React Architecture</span>
       </footer>
     </div>

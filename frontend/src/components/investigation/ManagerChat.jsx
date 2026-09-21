@@ -10,7 +10,8 @@ export function ManagerChat({ incident, onClose }) {
   const [messages, setMessages] = useState([
     {
       sender: 'ai',
-      text: `Executive Briefing for Incident [${incident.id}]: An attacker leveraged ${incident.attackType} against target asset ${incident.affectedEntity} (user: ${incident.user}). Primary risk factor: ${incident.evidenceSummary} Recommended action: ${incident.recommendedResponse}`
+      text: incident.groqManagerSummary
+        || `Executive Briefing for Incident [${incident.id}]: An attacker leveraged ${incident.attackType} against ${incident.affectedEntity || 'internal systems'} (user: ${incident.user || 'unknown'}). ${incident.evidenceSummary || ''} Recommended action: ${incident.recommendedResponse || 'Investigate immediately.'}`
     }
   ]);
   const [input, setInput] = useState('');
